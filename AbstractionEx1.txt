@@ -1,0 +1,46 @@
+package com;
+
+public abstract class Shape {
+	String color;
+	abstract void calculateArea();
+	public void setColor(String color)
+	{
+		this.color=color;
+		System.out.println(color);
+	}
+}
+class Circle extends Shape
+{
+	public void calculateArea() {
+		double radius=5.0;
+		System.out.println(3.14*radius*radius);
+		
+	}
+}
+class Square extends Shape
+{
+	
+	void calculateArea()
+	{
+		double length=4.0;
+		double breadth=4.0;
+		System.out.println(length*breadth);
+		
+	}
+
+}
+
+package com;
+
+public class Main {
+	public static void main(String[] args) {
+		Circle c = new Circle();
+		c.calculateArea();
+		c.setColor("red");
+		
+		Square s = new Square();
+		s.calculateArea();
+		s.setColor("blue");
+	}
+
+}

@@ -1,0 +1,84 @@
+package com;
+
+public interface IVehicle {
+	void drive();
+	void turnLeft();
+	void brake();
+
+}
+class Car extends MotorizedVehicle implements IVehicle 
+{
+	public void drive()
+	{
+		System.out.println("The car is moving");
+	}
+	public void turnLeft()
+	{
+		System.out.println("The car turned left ");
+	}
+	public void brake()
+	{
+		System.out.println("The car is in brake mode");
+	}
+}
+class Train implements IVehicle,IPublicTransport
+{
+	
+	@Override
+	public void drive()
+	{
+		System.out.println("The train is moving");
+	}
+	@Override
+	public void turnLeft()
+	{
+		System.out.println("The train turned left ");
+	}
+	@Override
+	public void brake()
+	{
+		System.out.println("The train is in brake mode");
+	}
+	@Override
+	public void getNumberOfPeople() {
+		// TODO Auto-generated method stub
+		System.out.println("There are around 300 people");
+		
+	}
+}
+
+package com;
+
+public interface IPublicTransport {
+	public void getNumberOfPeople();
+
+}
+package com;
+
+public class MotorizedVehicle {
+	public void checkMotor()
+	{
+		System.out.println("The motor of a vehicle is in a good condition");
+	}
+
+}
+package com;
+
+public class Main2 {
+	public static void main(String[] args) {
+		IVehicle c=new Car();
+		c.drive();
+		c.turnLeft();
+		c.brake();
+		IVehicle t=new Train();
+		t.drive();
+		t.turnLeft();
+		t.brake();
+		IPublicTransport t1=new Train();
+		t1.getNumberOfPeople();
+		
+		
+		
+	}
+
+}
