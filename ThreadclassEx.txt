@@ -1,0 +1,37 @@
+package com;
+
+public class MTEx extends Thread {
+	@Override
+	public void run()
+	{
+		for(int i=0;i<=4;i++)
+		{
+			System.out.println("i= "+i);
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+}
+package com;
+
+public class Main {
+	public static void main(String[] args) {
+		MTEx m=new MTEx();
+		m.run();
+		System.out.println(m.getName());
+		System.out.println(m.getPriority());
+		m.setPriority(1);
+		m.setName("thread1");
+		System.out.println(m.getName());
+		System.out.println(m.getPriority());
+		
+	}
+
+}
