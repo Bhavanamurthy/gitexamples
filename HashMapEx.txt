@@ -1,0 +1,74 @@
+package com;
+
+import java.util.Map.Entry;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class HashMapEx {
+	static HashMap<String,String> hm=new HashMap<String,String>();
+	public HashMap<String,String> storeCountryCapital(String CountryName, String capital)
+	{
+		hm.put(CountryName,capital);
+		return hm;
+	}
+	public String getCapital(String CountryName) {
+		return hm.get(CountryName);
+	}
+	
+	public String getCountry(String capital) {
+		Set<Entry<String, String>> set = hm.entrySet();
+		Iterator<Entry<String, String>> it = set.iterator();
+		
+		while (it.hasNext()) {
+			Map.Entry<String, String> me = it.next();
+			
+			if (me.getValue().equals(capital))
+				return me.getKey();
+		}
+		
+		return null;
+	}
+	
+	public HashMap<String, String> swapKyeValue() {
+		HashMap<String, String> hm1 = new HashMap<String, String>();
+		
+		Set<Entry<String, String>> set = hm.entrySet();
+		Iterator<Entry<String, String>> it = set.iterator();
+		
+		while (it.hasNext()) {
+			Map.Entry<String, String> me = it.next();
+			hm1.put(me.getValue(), me.getKey());
+		}
+		
+		return hm1;
+	}
+	
+	public ArrayList<String> toArrayList() {
+		ArrayList<String> al = new ArrayList<>();
+		
+		Set<Entry<String, String>> s = hm.entrySet();
+		Iterator<Entry<String, String>> it = s.iterator();
+		
+		while (it.hasNext()) {
+			Map.Entry<String, String> me = it.next();
+			al.add(me.getKey());
+		}
+		
+		return al;
+	}
+	public static void main(String[] args) {
+		HashMapEx h=new HashMapEx();
+		h.storeCountryCapital("India", "Delhi");
+		h.storeCountryCapital("Japan", "Tokyo");
+		System.out.println(h.getCapital("India"));
+		System.out.println(h.getCountry("Tokyo"));
+		System.out.println(h.swapKyeValue());
+		
+		
+		
+	}
+}
+
