@@ -1,0 +1,53 @@
+package com;
+
+public class PrinterThread {
+	synchronized void display(String s1,String s2)
+	{
+		System.out.println(s1+" "+s2);
+
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+}
+
+package com;
+
+public class StringPrinter extends Thread{
+	PrinterThread p;
+	String s1;
+	String s2;
+	StringPrinter(PrinterThread p,String s1,String s2)
+	{
+		this.p=p;
+		this.s1=s1;
+		this.s2=s2;
+		
+	}
+	@Override
+	public void run()
+	{
+		p.display(s1,s2);
+	}
+
+}
+package com;
+
+public class SyncExMain {
+	public static void main(String[] args) {
+		PrinterThread p=new PrinterThread();
+		StringPrinter s1=new StringPrinter(p,"Hello..","There");
+		StringPrinter s2=new StringPrinter(p,"How","are you");
+		StringPrinter s3=new StringPrinter(p,"Thank you","very much");
+		s1.start();
+		s2.start();
+		s3.start();
+	}
+
+}
