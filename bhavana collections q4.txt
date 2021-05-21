@@ -1,0 +1,16 @@
+package com;
+
+import java.util.HashMap;
+
+public class Ex4 {
+	public static void main(String[] args) {
+		String[] s={"kerala","gujarat","andhra"};
+		HashMap<String,String> hm=new HashMap<>();
+		for(String t:s)
+		{
+			hm.put(t.substring(0,3).toUpperCase(),t);
+		}
+		System.out.println(hm);
+	}
+
+}
