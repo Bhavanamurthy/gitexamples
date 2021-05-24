@@ -1,0 +1,31 @@
+package com;
+
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileBufferOutputTest 
+{
+	public static void main(String[] args) throws IOException {
+		FileOutputStream fo=null;
+		BufferedOutputStream bo=null;
+		Scanner sc=new Scanner(System.in);
+		byte id=sc.nextByte();
+		String name=sc.next();
+		try 
+		{
+			fo=new FileOutputStream("d:/newFile.txt");
+			bo=new BufferedOutputStream(fo);
+			byte[] buffer=new byte[1000];
+			buffer=name.getBytes();
+			bo.write(buffer);
+			System.out.println("Welcome "+name+" your employee id is "+id);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+}

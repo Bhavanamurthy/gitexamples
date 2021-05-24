@@ -1,0 +1,29 @@
+package com;
+import java.util.*;
+import java.io.*;
+
+public class FileReverseReading 
+{
+	public static void main (String [] args)throws IOException
+	{
+		FileReader fr = new FileReader("d:/Data.txt");
+		BufferedReader br = new BufferedReader(fr,100);
+
+		String data; 
+		String s = " ";
+
+		while ((data = br.readLine()) != null){
+			String[] words = data.split(" ");
+			for(String a: words)
+			{
+
+				StringBuilder builder=new StringBuilder(a);
+			    s=s+((builder.reverse().toString()+" "));
+			
+			}
+			System.out.print("The reversed String is"+s);
+			
+		}
+	}
+}
+
