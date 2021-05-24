@@ -12,16 +12,18 @@ public class FileBufferOutputTest
 		FileOutputStream fo=null;
 		BufferedOutputStream bo=null;
 		Scanner sc=new Scanner(System.in);
-		byte id=sc.nextByte();
+		int id=sc.nextInt();
 		String name=sc.next();
 		try 
 		{
 			fo=new FileOutputStream("d:/newFile.txt");
 			bo=new BufferedOutputStream(fo);
 			byte[] buffer=new byte[1000];
-			buffer=name.getBytes();
+			buffer=("Welcome "+name+" your employee id is "+id).getBytes();
 			bo.write(buffer);
-			System.out.println("Welcome "+name+" your employee id is "+id);
+			bo.close();
+			fo.close();
+		
 		} 
 		catch (FileNotFoundException e) 
 		{
