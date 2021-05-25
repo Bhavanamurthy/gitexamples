@@ -1,0 +1,35 @@
+package com;
+import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class BufferedWriterEmailRegistration {
+
+		public static void main(String[] args) throws IOException {
+			FileWriter fo=null;
+			BufferedWriter bo=null;
+			Scanner sc=new Scanner(System.in);
+			String name=sc.next();
+			String email=sc.next();
+			try 
+			{
+				fo=new FileWriter("d:/newFile.txt");
+				bo=new BufferedWriter(fo);
+				bo.write("Welcome "+name+" ,Thank you for registering your emailid "+email);
+				bo.close();
+				fo.close();
+			
+			} 
+			catch (FileNotFoundException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+
