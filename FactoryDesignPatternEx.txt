@@ -1,0 +1,62 @@
+package com;
+
+public interface Animal 
+{
+	public void says();
+
+}
+package com;
+
+public class Duck implements Animal{
+	@Override
+	public void says() 
+	{
+		System.out.println("Duck says Pack-pack");		
+	}
+}
+
+
+package com;
+
+public class Tiger implements Animal
+{
+	@Override
+	public void says() 
+	{
+		System.out.println("Tiger says Halum..Halum");		
+	}
+}
+
+
+
+package com;
+
+public class AnimalFactory {
+
+	public  Animal getAnimalType(String type) {
+		if(type==null) {
+			return null;
+		}
+		else if(type.equalsIgnoreCase("Duck")) {
+			return new Duck();
+		}
+		else if(type.equalsIgnoreCase("Tiger")) {
+			return new Tiger();
+		}
+		return null;
+	}
+}
+
+
+package com;
+
+public class AnimalFactoryEx
+{
+	public static void main(String[] args) {
+		AnimalFactory e=new AnimalFactory();
+		Animal d=e.getAnimalType("DUCK");
+		d.says();
+		Animal t=e.getAnimalType("Tiger");
+		t.says();
+	}
+}
