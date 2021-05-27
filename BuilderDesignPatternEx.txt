@@ -3,15 +3,14 @@ void name();
 float price();
 String pack();
 }
+interface Packing {
+String pack();
+}
 
 abstract class Burgers implements Item {
 }
 
 abstract class ColdDrinks implements Item {
-}
-
-interface Packing {
-String pack();
 }
 
 public class VegBurger extends Burgers implements Packing{
@@ -149,7 +148,7 @@ m.addItem(new Pepsi());
 public class Director {
 public static void main(String[] args) {
 	VegMealBuilder vm=new VegMealBuilder();
-	System.err.println("Veg Meal");
+	System.out.println("Veg Meal");
 	Meal m=vm.getMeal();
 	m.showItems();
    System.out.println("TotalCost:"+((new VegBurger().price)+(new Coke().price)));	
